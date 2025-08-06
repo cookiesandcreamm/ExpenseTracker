@@ -4,6 +4,7 @@ const cors = require("cors"); // cross-origin-sharing
 const path = require("path"); // Node.js built-in module for handling file and directory paths
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const incomeRoutes = require("./routes/incomeRoutes");
 
 
 const app = express(); // initializes your Express app -> this object is how I define routes and middleware
@@ -22,6 +23,7 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/income", incomeRoutes);
 
 // Serve uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
