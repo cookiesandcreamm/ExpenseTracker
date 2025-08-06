@@ -23,5 +23,8 @@ connectDB();
 
 app.use("/api/v1/auth", authRoutes);
 
+// Serve uploads folder
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 const PORT = process.env.PORT || 5000; //uses the port defined in .env file, or falls back on 5000
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)) // starts backend on specified port, callback logs a message so I know it started successfully
